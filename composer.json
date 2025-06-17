@@ -1,0 +1,17 @@
+{
+    "name": "techtuzzle/tuzzle-forms",
+    "description": "Drag n Drop Form Builder",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Techtuzzle\\TuzzleForms\\": "includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "therobiulislam12",
+            "email": "therobiulislam12@gmail.com"
+        }
+    ],
+    "require": {}
+}

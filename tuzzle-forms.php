@@ -13,6 +13,8 @@
  * Text Domain:       tuzzle-form
  */
 
+require 'vendor/autoload.php';
+
 if ( !defined( 'ABSPATH' ) ) {
     exit();
 }
