@@ -13,7 +13,8 @@
  * Text Domain:       tuzzle-form
  */
 
-require 'vendor/autoload.php';
+// autoload added
+require_once __DIR__ . '/vendor/autoload.php';
 
 // if anyone direct access
 if ( !defined( 'ABSPATH' ) ) {
@@ -41,8 +42,55 @@ final class TTZ_Tuzzle_Forms {
      */
     private function __construct() {
 
-        
+        // call constant
+        $this->define_constant();
 
+        // activation hook
+        register_activation_hook( TTZ_FORMS_FILE, [$this, 'ttz_active'] );
+
+        // after all plugins loaded
+        add_action('plugins_loaded', [$this, 'ttz_init']);
+
+    }
+
+    /**
+     * After all plugins loaded call this function
+     * 
+     * @return void
+     */
+    public function ttz_init(){
+        
+    }
+
+    /**
+     * Activation hook
+     *
+     * @return void
+     */
+    public function ttz_active() {
+
+        $installed = get_option( 'ttz_tuzzle_forms_installed' );
+
+        // installation time
+        if ( !$installed ) {
+            update_option( 'ttz_tuzzle_forms_installed', time() );
+        }
+
+        // update version
+        update_option( 'ttz_tuzzle_forms_version', TTZ_FORMS_VERSION );
+    }
+
+    /**
+     * Create all constant here
+     *
+     * @return void
+     */
+    public function define_constant() {
+        define( 'TTZ_FORMS_VERSION', self::version );
+        define( 'TTZ_FORMS_FILE', __FILE__ );
+        define( 'TTZ_FORMS_PATH', __DIR__ );
+        define( 'TTZ_FORMS_URL', plugins_url( '', TTZ_FORMS_FILE ) );
+        define( 'TTZ_FORMS_ASSETS', TTZ_FORMS_URL . '/assets' );
     }
 
     /**
