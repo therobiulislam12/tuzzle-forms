@@ -10,7 +10,7 @@
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Domain Path:       /languages
- * Text Domain:       tuzzle-form
+ * Text Domain:       tuzzle-forms
  */
 
 // autoload added
@@ -59,7 +59,11 @@ final class TTZ_Tuzzle_Forms {
      * @return void
      */
     public function ttz_init(){
-        
+        if(is_admin()){
+            new TechTuzzle\Forms\Admin();
+        } else{
+            new TechTuzzle\Forms\Frontend();
+        }
     }
 
     /**

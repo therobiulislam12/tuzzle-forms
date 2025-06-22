@@ -4,7 +4,7 @@
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Techtuzzle\\TuzzleForms\\": "includes/"
+      "TechTuzzle\\Forms\\": "includes/"
     },
     "files": [
       "includes/functions.php"

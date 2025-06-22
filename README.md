@@ -4,7 +4,7 @@
 # TODO for development
 
 ## Admin Section
-- [ ] Create an admin menu
+- [x] Create an admin menu
 - [ ] Add Multiple Forms create options and added shortcode system
 - [ ] Always new form ID needs to be unique
 - [ ] Try to add a style system for designing
