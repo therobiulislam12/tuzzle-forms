@@ -15,6 +15,60 @@
 
 require 'vendor/autoload.php';
 
+// if anyone direct access
 if ( !defined( 'ABSPATH' ) ) {
     exit();
 }
+
+/**
+ * Main Class
+ */
+
+final class TTZ_Tuzzle_Forms {
+
+    // plugin version
+    const version = "1.0.0";
+
+    /**
+     * Create a class instance
+     *
+     * @var null
+     */
+    private static $_instance = null;
+
+    /**
+     * Class Construct method
+     */
+    private function __construct() {
+
+        
+
+    }
+
+    /**
+     * create singleton class
+     *
+     * @return \TTZ_Tuzzle_Forms | void
+     */
+    public static function get_instance() {
+
+        if ( !self::$_instance ) {
+            self::$_instance = new self();
+        }
+
+        return self::$_instance;
+    }
+
+}
+
+/**
+ * Initializes the main plugin
+ *
+ * @return \TTZ_Tuzzle_Forms
+ */
+function tuzzle_forms() {
+    return TTZ_Tuzzle_Forms::get_instance();
+}
+
+// kick-off the plugin
+tuzzle_forms();
